@@ -1,20 +1,39 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import Logo from './components/logo';
+import GifTemplate from './components/group-of-gifs';
+import {Link, Route, useLocation} from "wouter"
 
-const GIFS = [ 'https://media4.giphy.com/media/PmLSyM6uVcY0na0yiZ/200w.webp?cid=ecf05e47humah3cyz11ps0e4xjdkyuh1icgj3pp2j4mrrkv6&rid=200w.webp&ct=g',
- 'https://media0.giphy.com/media/wzWxTUiXRQDYc/giphy.webp?cid=ecf05e477x9vl9gtzs1sflni8c6rr36um6cd47lmq5ot69gm&rid=giphy.webp&ct=g'];
-function App() {
-  const [gifs, updateGif] = useState([GIFS])
-  
-  return (
-    <div className="App">
-      <section className="App-content">
-      {
-          gifs.map((aGif, index) => <img key={index} src={aGif}/>)
-      }
-      </section>
-    </div>
-  );
+
+
+ function App() {
+  const [keyword, setKeyword] = useState()
+  const [path, pushLocation] = useLocation()
+  const busqueda = e => {
+    e.preventDefault()
+    pushLocation('/gif/' + keyword)
+  }
+  const resultadosBusqueda = e => {
+    setKeyword(e.target.value)
+  }
+    return (
+      <div className="App">
+        <Logo/>
+        <section className="App-Heading">
+            <form onSubmit={busqueda}>
+            <label for="search">Busca tu gif favorito</label>
+            <p>Por ahora, puedes buscar gifs que no sean de One Piece</p>
+            <input onChange={resultadosBusqueda} type="text" value={keyword} name="search" />
+            </form>
+        </section>
+        <section className="App-content">
+          <Route 
+           component ={GifTemplate}
+           path="/gif/:keyword" 
+          />
+        </section>
+      </div>
+    );
 }
 
 export default App;

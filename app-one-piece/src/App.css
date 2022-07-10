@@ -4,12 +4,70 @@
   align-items: center;
   text-align: center;
   background-color: #252525;
-  height: 100vh;
+  min-height: 100vh;
 }
 
+.App .logo {
+  height: 150px;
+  margin-top: 30px;
+}
+
+.App .App-Heading {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-family: Poppins;
+}
+
+.App .App-Heading form {
+  display: flex;
+  flex-direction: column;
+}
+.App .App-Heading input {
+  border-style: solid;
+  border-color:  #fff;
+  background-color: #252525;
+  color: #fff;
+  padding: 5px;
+  font-family: Poppins;
+  text-align: center;
+
+}
 .App-content {
-  margin-top: 20%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.App-content button {
+  background-color: rgba(255,255,255,0);
+  border-style: solid;
+  border-color: #fff;
+  border-width: 2px;
+  width: 100px;
+  height: 40px;
+  padding: 5px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  color: #fff;
+}
 
+.App-content img:first-child {
+  margin-top: 0px;
+}
+
+.App-content img {
+  margin-top: 20px;
+  height: 250px;
+  border-style: solid;
+  border-color: #fff;
+  border-width: 2px;
+}
+
+.App-content .title-gif {
+  color: #fff;
+}
 
